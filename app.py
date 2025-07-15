@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
 import base64
 import streamlit as st
 
@@ -28,4 +23,5 @@ if uploaded_file:
     image_bytes = uploaded_file.read()
     img_base64 = base64.b64encode(image_bytes).decode('utf-8')
     st.success("Image successfully converted to base64!")
+    st.write("Loaded endpoint and API key successfully!")
 
