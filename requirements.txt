@@ -1,0 +1,8 @@
+streamlit
+streamlit-authenticator
+openai
+pandas
+numpy
+matplotlib
+opencv-python
+Pillow
