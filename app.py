@@ -43,9 +43,12 @@ if uploaded_file:
 
             # Convert DataFrame to CSV and Excel
             csv_data = df.to_csv(index=False)
+            
             excel_buffer = io.BytesIO()
-            with pd.ExcelWriter(excel_buffer, engine='xlsxwriter') as writer:
-                df.to_excel(writer, index=False, sheet_name='Sheet1')
+
+            excel_buffer = io.BytesIO()
+            with pd.ExcelWriter(excel_buffer, engine="openpyxl") as writer:
+                df.to_excel(writer, index=False, sheet_name="Extracted Info")
             excel_data = excel_buffer.getvalue()
 
             # Download buttons
