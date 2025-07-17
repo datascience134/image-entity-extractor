@@ -41,15 +41,14 @@ if uploaded_file:
             st.subheader("Full Results Table")
             st.dataframe(df, use_container_width=True)
 
-            # Convert DataFrame to CSV and Excel
+            # Convert DataFrame to CSV
             csv_data = df.to_csv(index=False)
             
-            excel_buffer = io.BytesIO()
-
-            excel_buffer = io.BytesIO()
-            with pd.ExcelWriter(excel_buffer, engine="openpyxl") as writer:
-                df.to_excel(writer, index=False, sheet_name="Extracted Info")
-            excel_data = excel_buffer.getvalue()
+            # # Convert DataFrame to Excel
+            # excel_buffer = io.BytesIO()
+            # with pd.ExcelWriter(excel_buffer, engine='xlsxwriter') as writer:
+            #     df.to_excel(writer, index=False, sheet_name='Sheet1')
+            # excel_data = excel_buffer.getvalue()
 
             # Download buttons
             st.download_button(
@@ -59,10 +58,10 @@ if uploaded_file:
                 mime="text/csv"
             )
 
-            st.download_button(
-                label="📥 Download Excel",
-                data=excel_data,
-                file_name="extracted_data.xlsx",
-                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-            )
+            # st.download_button(
+            #     label="📥 Download Excel",
+            #     data=excel_data,
+            #     file_name="extracted_data.xlsx",
+            #     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            # )
 
