@@ -14,7 +14,7 @@ if uploaded_file:
     base64_dict = handle_uploaded_file(uploaded_file)
 
      # Button to trigger inference
-    if st.button("Run Inference"):
+    if st.button("Extract entities"):
         with st.spinner("Running inference..."):
 
             receipt_extraction_prompt = (
